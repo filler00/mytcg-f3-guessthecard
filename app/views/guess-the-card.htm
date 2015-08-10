@@ -1,0 +1,41 @@
+<h1>Guess the Card</h1>
+<p>Hover over the cards for hints!</p>
+
+<div class="f00-gtc-container">
+	<repeat group="{{ @answers }}" value="{{ @answer }}" key="{{ @index }}">
+		<check if="{{ isset(@guesses[@index]) && @guesses[@index] === @answer }}">
+			<true>
+				<div class="f00-solved-card">
+					<img src="{{ @tcguri }}assets/img/cards/{{ @cards[@index] . '.' . @ext }}">
+				</div>
+			</true>
+			<false>
+				<div class="f00-mystery-card {{ ( isset(@guesses[@index]) ) ? 'warning' : '' }}" data-toggle="tooltip" title="{{ @hints[@index]; }}">
+	                <i class="fa fa-question-circle fa-3x"></i>
+	            </div>
+			</false>
+		</check>
+	</repeat>
+	
+	<check if="{{ @win }}">
+		<true>
+			<p class="text-success">You won - nice work!</p>
+		</true>
+		<false>
+			<h3>Do you know the answer?</h3>
+		    <p>
+		        Submit your answers below!
+		    </p>
+		    <form class="form-group col-md-6" id="guess-the-card">
+		    	<repeat group="{{ @answers }}" value="{{ @answer }}" key="{{ @index }}">
+		    		<input type="text" name="guess{{ @index + 1 }}" placeholder="Guess Card #{{ @index + 1 }}" {{ ( isset(@guesses[@index]) ) ? 'value="' . @guesses[@index] . '"' : '' }} class="form-control f00-gtc-guess {{ ( isset(@guesses[@index]) && @guesses[@index] !== $answer ) ? 'f00-input-error' : ( @guesses[@index] === @answer ) ? 'f00-input-success' : '' ?>">
+		    	</repeat>
+		        
+		        <input type="submit" name="submit" value="Guess!"class="btn btn-primary btn-lg btn-block">
+		    </form>
+		    
+		    <div class="clearfix"></div>
+		</false>
+	</check>
+    
+</div>

@@ -1,0 +1,41 @@
+.f00-mystery-card {
+    color: #fff;
+    display: inline-block;
+    width: 55px;
+    height: 75px;
+    background-color: #666;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.f00-mystery-card.warning {
+    background-color: #cc3030;   
+}
+
+.f00-solved-card {
+    color: #fff;
+    display: inline-block;
+    width: 55px;
+    height: 75px;
+    /*background-color: #00ff83;*/
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.f00-mystery-card > i, .f00-solved-card > i {
+    line-height: 75px;
+}
+
+.f00-solved-card > img {
+	margin-top: -21px;
+}
+
+.f00-input-error {
+    border-color: #b94a48;
+}
+
+.f00-input-success {
+    border-color: #468847;
+}
