@@ -7,11 +7,13 @@ use Template;
 class GuessTheCard {
 	
 	protected $f3;
+	protected $db;
 	protected $game;
 	protected $gameData;
 	
-	function __construct( $f3, $game, $gameData ) {
+	function __construct( $f3, $db, $game, $gameData ) {
 		$this->f3 = $f3;
+		$this->db = $db;
 		$this->game = $game;
 		$this->gameData = $gameData;
 		
