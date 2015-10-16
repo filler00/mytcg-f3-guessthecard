@@ -1,6 +1,6 @@
 <?php
 
-namespace Plugins\Filler00\GuessTheCard\App\Controllers;
+namespace Plugins\Filler00\MyTCGf3GuessTheCard\App\Controllers;
 
 use Template;
 
@@ -10,6 +10,8 @@ class GuessTheCard {
 	protected $db;
 	protected $game;
 	protected $gameData;
+	protected $viewFile;
+	protected $templateFile;
 	
 	function __construct( $f3, $db, $game, $gameData ) {
 		$this->f3 = $f3;
@@ -17,8 +19,11 @@ class GuessTheCard {
 		$this->game = $game;
 		$this->gameData = $gameData;
 		
-		//$this->f3->push('ASSETS.css', 'app/plugins/filler00/guessthecard/assets/css/styles.css');
-		$this->f3->push('ASSETS.js', 'app/plugins/filler00/guessthecard/assets/js/scripts.js');
+		$this->viewFile = 'app/plugins/filler00/mytcgf3guessthecard/app/views/guess-the-card.htm';
+		$this->templateFile = 'app/templates/default.htm';
+		
+		//$this->f3->push('ASSETS.css', 'app/plugins/filler00/mytcgf3guessthecard/assets/css/styles.css');
+		$this->f3->push('ASSETS.js', 'app/plugins/filler00/mytcgf3guessthecard/assets/js/scripts.js');
 		
 	}
 
@@ -47,8 +52,8 @@ class GuessTheCard {
 		
 		$this->f3->set('win', $win);
 		
-		$this->f3->set('content','app/plugins/filler00/guessthecard/app/views/guess-the-card.htm'); 
-		echo Template::instance()->render('app/templates/default.htm');
+		$this->f3->set('content', $this->viewFile); 
+		echo Template::instance()->render( $this->templateFile );
 		
 	}
 	
