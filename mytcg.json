@@ -3,8 +3,13 @@
     "author": "Filler00",
     "authorUrl": "https://filler00.com",
     "supportUrl": ""
-    "ghUrl": "https://github.com/filler00/mytcg-f3-guessthecard",
     "fa-icon": "",
     "version": "1.0",
     "description": "A simple guess the card game."
+    "initLocalFiles": [
+        {
+            "file": "GuessTheCard.php.tmp",
+            "destination": "/app/controllers/local/GuessTheCard.php"
+        }
+    ]
 }

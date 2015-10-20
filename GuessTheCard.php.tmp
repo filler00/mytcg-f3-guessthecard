@@ -1,0 +1,21 @@
+<?php
+
+/*
+
+Place this file in your "/app/controllers/local" directory to initialize the game.
+
+*/
+
+namespace Controllers\Local\Games;
+
+use Plugins\Filler00\MyTCGf3GuessTheCard\App\Controllers\GuessTheCard as GuessTheCardCtrl;
+
+class GuessTheCard extends GuessTheCardCtrl {
+	
+	function __construct( $f3, $db, $game, $gameData ) {
+		parent::__construct( $f3, $db, $game, $gameData );
+		
+		$this->f3->push('ASSETS.css', 'app/plugins/filler00/mytcgf3guessthecard/assets/css/styles.css');
+	}
+	
+}
