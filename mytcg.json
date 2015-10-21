@@ -8,7 +8,7 @@
     "description": "A simple guess the card game."
     "initLocalFiles": [
         {
-            "file": "GuessTheCard.php.tmp",
+            "source": "GuessTheCard.php.tmp",
             "destination": "/app/controllers/local/GuessTheCard.php"
         }
     ]
