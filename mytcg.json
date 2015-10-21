@@ -2,10 +2,10 @@
     "name": "Guess the Card",
     "author": "Filler00",
     "authorUrl": "https://filler00.com",
-    "supportUrl": ""
+    "supportUrl": "",
     "fa-icon": "",
     "version": "1.0",
-    "description": "A simple guess the card game."
+    "description": "A simple guess the card game.",
     "initFiles": [
         {
             "source": "GuessTheCard.php.tmp",
