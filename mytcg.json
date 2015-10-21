@@ -6,10 +6,10 @@
     "fa-icon": "",
     "version": "1.0",
     "description": "A simple guess the card game."
-    "initLocalFiles": [
+    "initFiles": [
         {
             "source": "GuessTheCard.php.tmp",
-            "destination": "/app/controllers/local/GuessTheCard.php"
+            "destination": "/app/controllers/local/games/GuessTheCard.php"
         }
     ]
 }
