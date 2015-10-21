@@ -9,7 +9,7 @@
     "initFiles": [
         {
             "source": "GuessTheCard.php.tmp",
-            "destination": "/app/controllers/local/games/GuessTheCard.php"
+            "destination": "app/controllers/local/games/GuessTheCard.php"
         }
     ]
 }
