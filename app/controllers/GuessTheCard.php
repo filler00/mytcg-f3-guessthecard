@@ -29,7 +29,7 @@ class GuessTheCard {
 		$this->plugin = $this->plugins->getPackage('filler00/mytcg-f3-guessthecard');
 		
 		$this->viewFile = 'app/plugins/filler00/mytcgf3guessthecard/app/views/guess-the-card.htm';
-		$this->templateFile = 'app/templates/default.htm';
+		$this->templateFile = 'app/themes/'.$this->f3->get('theme').'/templates/default.htm';
 		
 		//$this->f3->push('ASSETS.css', 'app/plugins/filler00/mytcgf3guessthecard/assets/css/styles.css');
 		$this->f3->push('ASSETS.js', 'app/plugins/filler00/mytcgf3guessthecard/assets/js/scripts.js');
