@@ -2,22 +2,29 @@
 
 namespace Plugins\Filler00\MyTCGf3GuessTheCard\App\Controllers;
 
+use \DB\Jig;
+
 use Template;
+use Models\Core\Plugins;
 
 class GuessTheCard {
 	
 	protected $f3;
 	protected $db;
+	protected $jig;
 	protected $game;
 	protected $gameData;
 	protected $viewFile;
 	protected $templateFile;
+	protected $plugins;
 	
 	function __construct( $f3, $db, $game, $gameData ) {
 		$this->f3 = $f3;
 		$this->db = $db;
+		$this->jig = new Jig('storage/jig/');
 		$this->game = $game;
 		$this->gameData = $gameData;
+		$this->plugins = new Plugins($this->jig);
 		
 		$this->viewFile = 'app/plugins/filler00/mytcgf3guessthecard/app/views/guess-the-card.htm';
 		$this->templateFile = 'app/templates/default.htm';
@@ -28,6 +35,10 @@ class GuessTheCard {
 	}
 
 	public function run() {
+		
+		// throw a 404 error if the plugin has been disabled
+		if ( !$this->plugins->isEnabled('filler00/mytcg-f3-guessthecard') )
+			$this->f3->error(404);
 		
 		$this->f3->set('game', $this->game);
 		$this->f3->set('gameData', $this->gameData);
