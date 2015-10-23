@@ -17,6 +17,7 @@ class GuessTheCard {
 	protected $viewFile;
 	protected $templateFile;
 	protected $plugins;
+	protected $plugin;
 	
 	function __construct( $f3, $db, $game, $gameData ) {
 		$this->f3 = $f3;
@@ -25,6 +26,7 @@ class GuessTheCard {
 		$this->game = $game;
 		$this->gameData = $gameData;
 		$this->plugins = new Plugins($this->jig);
+		$this->plugin = $this->plugins->getPackage('filler00/mytcg-f3-guessthecard');
 		
 		$this->viewFile = 'app/plugins/filler00/mytcgf3guessthecard/app/views/guess-the-card.htm';
 		$this->templateFile = 'app/templates/default.htm';
@@ -37,7 +39,7 @@ class GuessTheCard {
 	public function run() {
 		
 		// throw a 404 error if the plugin has been disabled
-		if ( !$this->plugins->isEnabled('filler00/mytcg-f3-guessthecard') )
+		if ( !$this->plugin['enabled'] )
 			$this->f3->error(404);
 		
 		$this->f3->set('game', $this->game);
